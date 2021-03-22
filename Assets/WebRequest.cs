@@ -1,17 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.IO;
-using System.Xml;
 
 public class WebRequest : MonoBehaviour
 {
-    public int itemId = 1;
+    [SerializeField] int itemID = 1;
+
+    string uri = "http://arioncerceau.epizy.com/testedb.php?id=";
+
+    // Start is called before the first frame update
     void Start()
     {
-        UnityWebRequest.ClearCookieCache(new System.Uri("http://arioncerceau.epizy.com"));
-        StartCoroutine(GetRequest("http://arioncerceau.epizy.com/testedb.php?id=" + itemId.ToString()));
+        StartCoroutine(GetRequest(uri + itemID.ToString()));
     }
 
     IEnumerator GetRequest(string uri)
@@ -20,38 +22,36 @@ public class WebRequest : MonoBehaviour
 
         using (webRequest)
         {
-            // PARA BURLAR O PROBLEMA COM O INFINITY FREE
-            webRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko");
-          // MEU COOKIE, PEGO NO WIRE SHARK --> WIFI (OU ETHERNET) --> GRAVAR --> F5 NA PÁGINA NO EPZY --> ABRIR WIRE SHARK E PROCURAR POR HTTP --> HYPERTEXT TRANSFER PROTOCOL --> COOKIE
-           webRequest.SetRequestHeader("Cookie", "__test=226269f34688ea4884f625e7eddcd694");
+            webRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57");
+            webRequest.SetRequestHeader("Cookie", "__test=87b1b2e0e5bce20ae27d1c65cde386d0");
 
+            //Wait communication
             yield return webRequest.SendWebRequest();
 
-            if (webRequest.result == UnityWebRequest.Result.ConnectionError) // O mesmo que webRequest.isNetworkError (obsoleto)
+            //Handle connection errors 
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.Log(": Error: " + webRequest.error);
+                Debug.Log("Error: " + webRequest.error);
             }
             else
             {
-                // XML Parse - Em objeto XML
+                Debug.Log("Connected");
+
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(webRequest.downloadHandler.text);
 
-                //Dispaly all the book titles.
                 XmlNode result = doc.FirstChild;
                 XmlNodeList itemList = result.ChildNodes;
 
-                XmlAttributeCollection attributes;
-
                 for (int i = 0; i < itemList.Count; i++)
                 {
-                    
-                    attributes = itemList[i].Attributes;
-                   // XmlAttribute attr = (XmlAttribute)attributes.GetNamedItem("name");
-                   // Debug.Log("Name:"+ attributes["name"]);
+                    Debug.Log(itemList[i].InnerXml);
+
+                    XmlAttributeCollection attributes = itemList[i].Attributes;
+
+                    Debug.Log(itemList[i].InnerXml);
                 }
             }
         }
     }
-
 }
