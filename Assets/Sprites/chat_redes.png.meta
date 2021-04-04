@@ -1,49 +1,37 @@
 fileFormatVersion: 2
-guid: e50c26631bd97c846b3a8304f81295be
+guid: f104d1d8e6d29314cbb1fd13bd151ceb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3289132930068974553
-    second: circulo
+      213: 267942738523872633
+    second: Chat_Back
   - first:
-      213: 8530338933859121165
-    second: Background
-  - first:
-      213: -5443436256224397679
-    second: emoji_triste
-  - first:
-      213: 6528156946792292329
-    second: handle_rolagem
-  - first:
-      213: -9200874039177823936
-    second: barra_rolagem
-  - first:
-      213: 2039818145399621517
-    second: emoji_feliz
-  - first:
-      213: 3367174273419548639
-    second: emoji_bravo
-  - first:
-      213: 7779608309837477582
-    second: emoji_neutro
-  - first:
-      213: 4462656973838351698
-    second: emoji_fome
-  - first:
-      213: -5980135869811489750
+      213: -7571613804200433557
     second: Button
   - first:
-      213: -4126848041493593360
-    second: Button_Pressed
+      213: 6673303707059223078
+    second: Close
   - first:
-      213: -715561310616572541
-    second: Text
+      213: 1814021029521801463
+    second: Box
   - first:
-      213: -6816192198061082633
-    second: background tela escrever
+      213: -8085060906943428404
+    second: Background
   - first:
-      213: -4553222997163145090
-    second: Button_Disable
+      213: 7375458815898197217
+    second: Slider_01
+  - first:
+      213: 4182101951495524430
+    second: Slider_02
+  - first:
+      213: -8743403588575046545
+    second: Backgorund_Chat
+  - first:
+      213: 8447325921359676467
+    second: Lock
+  - first:
+      213: 8825174322456597725
+    second: Box_write
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,190 +133,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: circulo
+      name: Chat_Back
       rect:
         serializedVersion: 2
-        x: 1256
-        y: 1819
-        width: 196
-        height: 207
+        x: 68
+        y: 1170
+        width: 1297
+        height: 121
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 724f234d607aa52d0800000000000000
-      internalID: -3289132930068974553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 766
-        width: 1019
-        height: 1122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 480, y: 244, z: 454, w: 217}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d087b5e801ad16670800000000000000
-      internalID: 8530338933859121165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: emoji_triste
-      rect:
-        serializedVersion: 2
-        x: 1495
-        y: 1776
-        width: 119
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1963346c0970574b0800000000000000
-      internalID: -5443436256224397679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handle_rolagem
-      rect:
-        serializedVersion: 2
-        x: 1732
-        y: 1834
-        width: 71
-        height: 168
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 33, y: 35, z: 33, w: 36}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ef9d8bc72ca89a50800000000000000
-      internalID: 6528156946792292329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: barra_rolagem
-      rect:
-        serializedVersion: 2
-        x: 1881
-        y: 742
-        width: 53
-        height: 1175
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 52, z: 0, w: 44}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04931b74fcdef4080800000000000000
-      internalID: -9200874039177823936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: emoji_feliz
-      rect:
-        serializedVersion: 2
-        x: 1334
-        y: 1672
-        width: 119
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d87c0fabbc3ee4c10800000000000000
-      internalID: 2039818145399621517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: emoji_bravo
-      rect:
-        serializedVersion: 2
-        x: 1669
-        y: 1667
-        width: 119
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd79100692b9abe20800000000000000
-      internalID: 3367174273419548639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: emoji_neutro
-      rect:
-        serializedVersion: 2
-        x: 1407
-        y: 1484
-        width: 119
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec63a872a88b6fb60800000000000000
-      internalID: 7779608309837477582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: emoji_fome
-      rect:
-        serializedVersion: 2
-        x: 1589
-        y: 1485
-        width: 119
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25dfd00afda8eed30800000000000000
-      internalID: 4462656973838351698
+      spriteID: 97d5cd5408ce7b300800000000000000
+      internalID: 267942738523872633
       vertices: []
       indices: 
       edges: []
@@ -337,103 +157,187 @@ TextureImporter:
       name: Button
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 1296
-        width: 425
-        height: 115
+        x: 1416
+        y: 1168
+        width: 359
+        height: 123
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 88, y: 56, z: 78, w: 54}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a24805b4c1a420da0800000000000000
-      internalID: -5980135869811489750
+      spriteID: b6860387c593ce690800000000000000
+      internalID: -7571613804200433557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Pressed
+      name: Close
       rect:
         serializedVersion: 2
-        x: 1348
+        x: 1808
         y: 1169
-        width: 425
-        height: 115
+        width: 142
+        height: 122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 75, y: 55, z: 85, w: 55}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f202cc329d7ab6c0800000000000000
-      internalID: -4126848041493593360
+      spriteID: 62aff896d565c9c50800000000000000
+      internalID: 6673303707059223078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Text
+      name: Box
       rect:
         serializedVersion: 2
-        x: 1372
-        y: 715
-        width: 375
-        height: 308
+        x: 35
+        y: 1053
+        width: 1918
+        height: 85
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 42, y: 42, z: 42, w: 35}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38dafa977c0d116f0800000000000000
-      internalID: -715561310616572541
+      spriteID: 7f04cb7e382bc2910800000000000000
+      internalID: 1814021029521801463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background tela escrever
+      name: Background
       rect:
         serializedVersion: 2
-        x: 163
-        y: 127
-        width: 1751
-        height: 531
+        x: 34
+        y: 59
+        width: 1920
+        height: 985
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 30, y: 135, z: 420, w: 20}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f7b7c14f450861a0800000000000000
-      internalID: -6816192198061082633
+      spriteID: cc84d3e01f71ccf80800000000000000
+      internalID: -8085060906943428404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Disable
+      name: Slider_01
       rect:
         serializedVersion: 2
-        x: 1348
-        y: 1042
-        width: 425
-        height: 115
+        x: 1985
+        y: 78
+        width: 21
+        height: 958
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 78, y: 57, z: 72, w: 56}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7883fedec3bfc0c0800000000000000
-      internalID: -4553222997163145090
+      spriteID: 1ec922957b4ea5660800000000000000
+      internalID: 7375458815898197217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_02
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 77
+        width: 22
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40db51319fc90a30800000000000000
+      internalID: 4182101951495524430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backgorund_Chat
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 78
+        width: 1360
+        height: 892
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64db1fb2c039a680800000000000000
+      internalID: -8743403588575046545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lock
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 996
+        width: 224
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334c79c6b2eea3570800000000000000
+      internalID: 8447325921359676467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box_write
+      rect:
+        serializedVersion: 2
+        x: 2331
+        y: 1000
+        width: 579
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd49cead941597a70800000000000000
+      internalID: 8825174322456597725
       vertices: []
       indices: 
       edges: []
@@ -441,7 +345,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 36714593cc5d32a40afe84573165b6e4
+    spriteID: 54453cebd0fc8d3458f10e294abb9c06
     internalID: 0
     vertices: []
     indices: 
