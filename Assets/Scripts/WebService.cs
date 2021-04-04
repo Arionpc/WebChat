@@ -33,7 +33,15 @@ public class WebService : MonoBehaviour
     List<int> currentMessages = new List<int>();
     List<string> current = new List<string>();
 
-    // Start is called before the first frame update
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return)) //Apertar Enter pra mandar msg
+        {
+            if (button.interactable){
+            SendMessage();
+            }
+        }
+    }
     void OnEnable()
     {
         chat.SetActive(true);
