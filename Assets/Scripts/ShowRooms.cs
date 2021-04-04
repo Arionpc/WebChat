@@ -19,20 +19,18 @@ public class ShowRooms : MonoBehaviour
     [SerializeField] RoomData prefab;
     [SerializeField] Transform parentButton;
     [SerializeField] WebService service;
-
+    [Header("Fields")]
     [SerializeField] InputField nameField;
     [SerializeField] InputField roomField;
+    [Header("Buttons")]
     [SerializeField] Button createButton;
     [SerializeField] Button SearchButton;
     [SerializeField] Button EnterButton;
-
-    public GameObject hostOptions;
-    public Toggle usuarioPrefab;
-    public Transform usuarioList;
-
-    public List<int> usersId = new List<int>();
-    public List<string> usersName = new List<string>();
-    public List<GameObject> users = new List<GameObject>();
+    [SerializeField] Text roomName;
+    [Header("Host")]
+    [SerializeField] GameObject hostOptions;
+    [SerializeField] Toggle usuarioPrefab;
+    [SerializeField] Transform usuarioList;
 
     public UnityWebRequest WebRequest { get; private set; }
     public string NickName { get; set; }
@@ -40,8 +38,12 @@ public class ShowRooms : MonoBehaviour
     public int CurrentRoomID { get; set; }
     public string CurrentRoomName { get; set; }
     public int MyId { get; set; }
-    public List<int> UsersId { get => usersId; set => usersId = value; }
-    public List<string> UsersName { get => usersName; set => usersName = value; }
+    public List<int> UsersId { get; set; } = new List<int>();
+    public List<string> UsersName { get; set; } = new List<string>();
+    public List<GameObject> Users { get; set; } = new List<GameObject>();
+    public GameObject HostOptions { get => hostOptions; set => hostOptions = value; }
+    public Toggle UsuarioPrefab { get => usuarioPrefab; set => usuarioPrefab = value; }
+    public Transform UsuarioList { get => usuarioList; set => usuarioList = value; }
 
     bool isCurrentHost = false;
 
@@ -49,6 +51,14 @@ public class ShowRooms : MonoBehaviour
 
     public void SearchRoom()
     {
+        for (int i = 0; i < parentButton.childCount; i++)
+        {
+            int id = i;
+            Destroy(parentButton.GetChild(id).gameObject);
+        }
+
+        EnterButton.interactable = false;
+
         //Message
         string completeUrl = enterRoomUri + "nick=" + NickName;
         UnityWebRequest.Get(completeUrl);
@@ -268,24 +278,26 @@ public class ShowRooms : MonoBehaviour
                 XmlNode result = doc.FirstChild;
                 itemList = result.ChildNodes;
 
+                string nameExit = "";
+
                 for (int i = 0; i < itemList.Count; i++)
                 {
-                    string name = itemList[i].InnerXml.Split('"')[1];
-                    name = name.Split('"')[0];
+                    nameExit = itemList[i].InnerXml.Split('"')[1];
+                    nameExit = nameExit.Split('"')[0];
                 }
-            }
 
-            string url;
-            if (!isCurrentHost)
-            {
-                url = messageUri + "idUser=" + MyId + "&isAlert=1" +"&roomID=" + CurrentRoomID + "&message=" + "saiu da sala.";
-            }
-            else
-            {
-                url = messageUri + "idUser=" + MyId + "&isAlert=1" + "&roomID=" + CurrentRoomID + "&message=" + "Sistema: O host se desconectou. A sala está offline.";
-            }
+                string url;
+                if (!isCurrentHost)
+                {
+                    url = messageUri + "idUser=" + MyId + "&isAlert=1" + "&roomID=" + CurrentRoomID + "&message=" + "O usuario " + nameExit + " saiu da sala.";
+                }
+                else
+                {
+                    url = messageUri + "idUser=-2" + "&isAlert=1" + "&roomID=" + CurrentRoomID + "&message=" + "Sistema: O host se desconectou. A sala está offline.";
+                }
 
-            StartCoroutine(GetWhoExit(url));
+                StartCoroutine(GetWhoExit(url));
+            }
 
             OpenMenu();
         }
@@ -309,37 +321,7 @@ public class ShowRooms : MonoBehaviour
             }
             else
             {
-                Debug.Log("Message Send");
-
-                XmlDocument doc = new XmlDocument();
-
-                doc.LoadXml(WebRequest.downloadHandler.text);
-
-                XmlNode result = doc.FirstChild;
-                itemList = result.ChildNodes;
-
-                string id = itemList[itemList.Count - 1].InnerXml.Split('"')[1];
-                id = id.Split('"')[0];
-
-                if (MyId != int.Parse(id))
-                {
-                    Destroy(users[UsersId.IndexOf(int.Parse(id))]);
-                    users.RemoveAt(UsersId.IndexOf(int.Parse(id)));
-
-                    if (UsersId.Contains(int.Parse(id)))
-                    {
-                        UsersId.Remove(int.Parse(id));
-                    }
-
-                    string name = itemList[itemList.Count - 1].InnerXml.Split('=')[2];
-                    name = name.Split('"')[1];
-                    name = name.Split('"')[0];
-
-                    if (UsersName.Contains(name))
-                    {
-                        UsersName.Remove(name);
-                    }
-                }
+                Debug.Log("Exit Send");
             }
         }
     }
@@ -348,6 +330,7 @@ public class ShowRooms : MonoBehaviour
     {
         CurrentRoomID = data.roomID;
         CurrentRoomName = data.roomName;
+        EnterButton.interactable = true;
     }
 
     int GetUserId(string value)
@@ -375,17 +358,29 @@ public class ShowRooms : MonoBehaviour
 
     void OpenChat(bool host = false)
     {
+        roomName.text = "Sala: " + CurrentRoomName;
         service.enabled = true;
 
         if (host)
         {
-            hostOptions.SetActive(true);
+            HostOptions.SetActive(true);
+        }
+
+        for (int i = 0; i < parentButton.childCount; i++)
+        {
+            int id = i;
+            Destroy(parentButton.GetChild(id).gameObject);
         }
     }
     void OpenMenu()
     {
         isCurrentHost = false;
         service.enabled = false;
+        EnterButton.interactable = false;
+
+        Users.Clear();
+        UsersName.Clear();
+        UsersId.Clear();
     }
 
     public void OpenPlayerList()
@@ -470,6 +465,7 @@ public class ShowRooms : MonoBehaviour
             }
         }
     }
+
     public void VerifyIfNameIsEmpty()
     {
         SearchButton.interactable = nameField.text != "";

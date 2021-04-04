@@ -1,0 +1,9 @@
+Todos os Emojis tem como prefixo ':'
+
+:BD  	=Carinha de óculos
+:D   	=Carinha feliz
+:T-T 	=Carinha chorando de rir
+:P   	=Carinha mostrando a lingua
+:S2  	=Carinha apaixonada
+:;D  	=Carinha piscando e feliz
+:C  	=Carinha triste

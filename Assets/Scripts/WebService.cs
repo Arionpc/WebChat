@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using TMPro;
 
 public class WebService : MonoBehaviour
 {
@@ -17,16 +19,19 @@ public class WebService : MonoBehaviour
     [SerializeField] InputField inputField;
     [SerializeField] Button button;
     [SerializeField] float updateSpeed = 1;
+    [SerializeField] ScrollRect scroll;
 
     UnityWebRequest webRequest;
     readonly string uri = "http://arioncerceau.epizy.com/SendMessage.php?";
+    readonly string uriGetUsers = "http://arioncerceau.epizy.com/UsersInRoom.php?";
 
     public UnityWebRequest WebRequest { get => webRequest; private set => webRequest = value; }
     public string Message { get; set; }
 
     Coroutine active;
 
-    public List<int> currentMessages = new List<int>();
+    List<int> currentMessages = new List<int>();
+    List<string> current = new List<string>();
 
     // Start is called before the first frame update
     void OnEnable()
@@ -41,7 +46,7 @@ public class WebService : MonoBehaviour
         StopCoroutine(active);
         chat.SetActive(false);
         connection.SetActive(true);
-        rooms.hostOptions.SetActive(false);
+        rooms.HostOptions.SetActive(false);
 
         for (int i = 0; i < chatTransform.childCount; i++)
         {
@@ -53,7 +58,7 @@ public class WebService : MonoBehaviour
     public void SendMessage()
     {
         //Message
-        string completeUrl = uri + "idUser="  + rooms.MyId + "&isAlert=0" + "&roomID=" + rooms.CurrentRoomID + "&message=" + Message;
+        string completeUrl = uri + "idUser=" + rooms.MyId + "&isAlert=0" + "&roomID=" + rooms.CurrentRoomID + "&message=" + Message;
 
         StartCoroutine(SendRequest(completeUrl));
     }
@@ -96,7 +101,7 @@ public class WebService : MonoBehaviour
         name = name.Split('"')[1];
         name = name.Split('"')[0];
 
-        string msg = inner.Split('=')[3];
+        string msg = inner.Split('=')[6];
         msg = msg.Split('"')[1];
         msg = msg.Split('"')[0];
 
@@ -129,70 +134,150 @@ public class WebService : MonoBehaviour
 
                     XmlDocument doc = new XmlDocument();
 
+                    if (webRequest.downloadHandler.text == "")
+                    {
+                        Debug.Log("Skip");
+                    }
+                    else
+                    {
+                        doc.LoadXml(webRequest.downloadHandler.text);
+
+                        XmlNode result = doc.FirstChild;
+                        XmlNodeList itemList = result.ChildNodes;
+
+                        current = new List<string>();
+
+                        for (int i = 0; i < itemList.Count; i++)
+                        {
+                            Debug.Log(itemList[i].InnerXml);
+
+                            string msgId = itemList[i].InnerXml.Split('=')[5];
+                            msgId = msgId.Split('"')[1];
+                            msgId = msgId.Split('"')[0];
+
+                            string msgAlert = itemList[i].InnerXml.Split('=')[3];
+                            msgAlert = msgAlert.Split('"')[1];
+                            msgAlert = msgAlert.Split('"')[0];
+
+                            if (!currentMessages.Contains(int.Parse(msgId)))
+                            {
+                                GameObject chat = Instantiate(chatPrefab, chatTransform);
+                                string msg = ConvertMessage(itemList[i].InnerXml);
+
+                                msg = ReplaceTextWithEmoji(msg, ":BD");
+                                msg = ReplaceTextWithEmoji(msg, ":D");
+                                msg = ReplaceTextWithEmoji(msg, ":T-T");
+                                msg = ReplaceTextWithEmoji(msg, ":P");
+                                msg = ReplaceTextWithEmoji(msg, ":S2");
+                                msg = ReplaceTextWithEmoji(msg, ":;D");
+                                msg = ReplaceTextWithEmoji(msg, ":C");
+
+                                chat.GetComponentInChildren<TextMeshProUGUI>().text = msg;
+                                if (msgAlert == "1")
+                                {
+                                    chat.GetComponentInChildren<TextMeshProUGUI>().color = new Vector4(0.9f, 0.9f, 0.016f, 1);
+                                }
+
+                                if (GetLinks(msg, out string link))
+                                {
+                                    chat.AddComponent<Button>().onClick.AddListener(() => Application.OpenURL(link));
+                                    chat.GetComponentInChildren<TextMeshProUGUI>().color = Color.cyan;
+                                    chat.GetComponentInChildren<TextMeshProUGUI>().text = "<i>" + msg + "</i>";
+                                }
+                                currentMessages.Add(int.Parse(msgId));
+
+                                yield return new WaitForEndOfFrame();
+                                scroll.normalizedPosition = new Vector2(0, 0);
+                            }
+                        }
+                    }
+                }
+            }
+            yield return StartCoroutine(GetUsers());
+        }
+    }
+
+    IEnumerator GetUsers()
+    {
+        yield return new WaitForSeconds(updateSpeed);
+        webRequest = UnityWebRequest.Get(uriGetUsers + "roomID=" + rooms.CurrentRoomID);
+
+        using (webRequest)
+        {
+            webRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57");
+            webRequest.SetRequestHeader("Cookie", cookieValue);
+
+            //Wait communication
+            yield return webRequest.SendWebRequest();
+
+            //Handle connection errors 
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log("Error: " + webRequest.error);
+            }
+            else
+            {
+                Debug.Log("Updating Messages");
+
+                XmlDocument doc = new XmlDocument();
+
+                if (webRequest.downloadHandler.text == "")
+                {
+                    Debug.Log("Skip");
+                }
+                else
+                {
                     doc.LoadXml(webRequest.downloadHandler.text);
 
                     XmlNode result = doc.FirstChild;
                     XmlNodeList itemList = result.ChildNodes;
 
+                    current = new List<string>();
                     for (int i = 0; i < itemList.Count; i++)
                     {
-                        Debug.Log(itemList[i].InnerXml);
-
-                        string msgId = itemList[i].InnerXml.Split('=')[5];
-                        msgId = msgId.Split('"')[1];
-                        msgId = msgId.Split('"')[0];
-
-                        string msgAlert = itemList[i].InnerXml.Split('=')[6];
-                        msgAlert = msgAlert.Split('"')[1];
-                        msgAlert = msgAlert.Split('"')[0];
-
-                        if (!currentMessages.Contains(int.Parse(msgId)))
-                        {
-                            GameObject chat = Instantiate(chatPrefab, chatTransform);
-                            chat.GetComponentInChildren<Text>().text = ConvertMessage(itemList[i].InnerXml);
-                            if (msgAlert == "1")
-                            {
-                                chat.GetComponentInChildren<Text>().color = Color.red;
-                            }
-                            currentMessages.Add(int.Parse(msgId));
-                        }
-
-                        
-
                         string id = itemList[i].InnerXml.Split('"')[1];
                         id = id.Split('"')[0];
 
                         if (rooms.MyId != int.Parse(id))
                         {
+                            current.Add(id);
+
                             if (!rooms.UsersId.Contains(int.Parse(id)))
                             {
-                                if (!rooms.UsersId.Contains(int.Parse(id)))
-                                {
-                                    rooms.UsersId.Add(int.Parse(id));
-                                }
+                                rooms.UsersId.Add(int.Parse(id));
 
                                 string name = itemList[i].InnerXml.Split('=')[2];
                                 name = name.Split('"')[1];
                                 name = name.Split('"')[0];
 
-                                if (!rooms.UsersName.Contains(name))
-                                {
-                                    rooms.UsersName.Add(name);
-                                }
+                                rooms.UsersName.Add(name);
 
-                                Toggle b = Instantiate(rooms.usuarioPrefab, rooms.usuarioList);
+                                Toggle b = Instantiate(rooms.UsuarioPrefab, rooms.UsuarioList);
                                 b.onValueChanged.AddListener((value) => rooms.BlockUser(int.Parse(id), value, name));
                                 b.GetComponentInChildren<Text>().text = name;
 
-                                rooms.users.Add(b.gameObject);
+                                rooms.Users.Add(b.gameObject);
                             }
+                        }
+                    }
+
+                    for (int i = 0; i < rooms.UsersId.Count; i++)
+                    {
+                        int id = i;
+                        if (!current.Contains(rooms.UsersId[id].ToString()))
+                        {
+                            Destroy(rooms.Users[id].gameObject);
+                            rooms.Users.RemoveAt(id);
+
+                            rooms.UsersId.RemoveAt(id);
+
+                            rooms.UsersName.RemoveAt(id);
                         }
                     }
                 }
             }
         }
     }
-
     public void Clear()
     {
         inputField.text = "";
@@ -202,5 +287,39 @@ public class WebService : MonoBehaviour
     public void VerifyIfMessageIsEmpty()
     {
         button.interactable = inputField.text != "";
+    }
+
+    public bool GetLinks(string message, out string link)
+    {
+        List<string> list = new List<string>();
+        Regex urlRx = new Regex(@"((https?|ftp|file)\://|www.)[A-Za-z0-9\.\-]+(/[A-Za-z0-9\?\&\=;\+!'\(\)\*\-\._~%]*)*", RegexOptions.IgnoreCase);
+
+        bool have = false;
+
+        MatchCollection matches = urlRx.Matches(message);
+        foreach (Match match in matches)
+        {
+            have = true;
+            list.Add(match.Value);
+        }
+
+        if (have)
+        {
+            link = list[0];
+        }
+        else
+        {
+            link = "";
+        }
+
+        return have;
+    }
+
+    public string ReplaceTextWithEmoji(string text, string toReplace)
+    {
+        string input = text;
+        string pattern = toReplace;
+        string replace = "<sprite name=" + toReplace + ">";
+        return Regex.Replace(input, pattern, replace);
     }
 }
