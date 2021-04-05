@@ -146,7 +146,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -192,7 +192,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 132.66272, y: -36.674927}
-  m_SizeDelta: {x: 165.8256, y: 53.3499}
+  m_SizeDelta: {x: 246.3256, y: 89.3499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2579614290498667774
 CanvasRenderer:
@@ -256,7 +256,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8666667, g: 0.6862745, b: 0.37254903, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.5137255, b: 0.039215688, a: 1}
-    m_SelectedColor: {r: 1, g: 0.23113209, b: 0.23113209, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
