@@ -3943,7 +3943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0156eff5dc170fc4d826de87054294fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookieValue: __test=f10b3a5b1d01708368a568d20fb2cd4c
+  cookieValue: __test=03b2675a9beedd8d0755a6bbf1bc42f3
   chat: {fileID: 1111594098}
   connection: {fileID: 217439838}
   chatPrefab: {fileID: 4451337887831708109, guid: ad0df6dc4911800499ab935cf3842a6d, type: 3}
@@ -3979,7 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e0f43009139204aadb34c1af3b7607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookieValue: __test=f10b3a5b1d01708368a568d20fb2cd4c
+  cookieValue: __test=03b2675a9beedd8d0755a6bbf1bc42f3
   prefab: {fileID: 2632469353902448582, guid: f05c6947650adfe44bc86991c661e8c8, type: 3}
   parentButton: {fileID: 1280750432}
   service: {fileID: 1162411804}

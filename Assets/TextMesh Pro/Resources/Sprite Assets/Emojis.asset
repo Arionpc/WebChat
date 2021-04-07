@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
-  m_Name: EmojiOne
+  m_Name: Emojis
   m_EditorClassIdentifier: 
   hashCode: -1836805472
   material: {fileID: 2103686}
@@ -57,7 +57,7 @@ MonoBehaviour:
     m_FamilyName: 
     m_StyleName: 
     m_PointSize: 0
-    m_Scale: 0
+    m_Scale: 2
     m_LineHeight: 0
     m_AscentLine: 0
     m_CapLine: 0
@@ -79,337 +79,337 @@ MonoBehaviour:
     m_Unicode: 128522
     m_GlyphIndex: 0
     m_Scale: 1
-    m_Name: :)
-    m_HashCode: 1875
+    m_Name: :feliz
+    m_HashCode: -2133145466
   - m_ElementType: 2
     m_Unicode: 128523
     m_GlyphIndex: 1
     m_Scale: 1
-    m_Name: :P
-    m_HashCode: 1834
+    m_Name: :triste
+    m_HashCode: 1938473239
   - m_ElementType: 2
     m_Unicode: 128525
     m_GlyphIndex: 2
     m_Scale: 1
-    m_Name: :S2
-    m_HashCode: 60539
+    m_Name: :nervoso
+    m_HashCode: -1175882938
   - m_ElementType: 2
     m_Unicode: 128526
     m_GlyphIndex: 3
     m_Scale: 1
-    m_Name: :BD
-    m_HashCode: 61052
+    m_Name: :pensativo
+    m_HashCode: -1155451497
   - m_ElementType: 2
     m_Unicode: 128512
     m_GlyphIndex: 4
     m_Scale: 1
-    m_Name: :D
-    m_HashCode: 1854
+    m_Name: :bravo
+    m_HashCode: -2138350446
   - m_ElementType: 2
     m_Unicode: 128513
     m_GlyphIndex: 5
     m_Scale: 1
-    m_Name: :;D
-    m_HashCode: 61221
+    m_Name: :8
+    m_HashCode: 1858
   - m_ElementType: 2
     m_Unicode: 128514
     m_GlyphIndex: 6
     m_Scale: 1
-    m_Name: :T-T
-    m_HashCode: 2000247
+    m_Name: :fumando
+    m_HashCode: -52401984
   - m_ElementType: 2
     m_Unicode: 128515
     m_GlyphIndex: 7
     m_Scale: 1
-    m_Name: 1f603
-    m_HashCode: 57188258
+    m_Name: :surpresa
+    m_HashCode: -1257925
   - m_ElementType: 2
     m_Unicode: 128516
     m_GlyphIndex: 8
     m_Scale: 1
-    m_Name: 1f604
-    m_HashCode: 57188261
+    m_Name: :apaixonado
+    m_HashCode: -1764582928
   - m_ElementType: 2
     m_Unicode: 128517
     m_GlyphIndex: 9
     m_Scale: 1
-    m_Name: 1f605
-    m_HashCode: 57188260
+    m_Name: :contente
+    m_HashCode: 1959040758
   - m_ElementType: 2
     m_Unicode: 128518
     m_GlyphIndex: 10
     m_Scale: 1
-    m_Name: 1f606
-    m_HashCode: 57188263
+    m_Name: :ideia
+    m_HashCode: 2144286074
   - m_ElementType: 2
     m_Unicode: 128521
     m_GlyphIndex: 11
     m_Scale: 1
-    m_Name: 1f609
-    m_HashCode: 57188264
+    m_Name: :chaplin
+    m_HashCode: -1922809621
   - m_ElementType: 2
     m_Unicode: 0
     m_GlyphIndex: 12
     m_Scale: 1
-    m_Name: .notdef
-    m_HashCode: -600915428
+    m_Name: :tirado
+    m_HashCode: 1916845439
   - m_ElementType: 2
     m_Unicode: 129315
     m_GlyphIndex: 13
     m_Scale: 1
-    m_Name: 1f923
-    m_HashCode: 57200239
+    m_Name: :assobiar
+    m_HashCode: 753808268
   - m_ElementType: 2
     m_Unicode: 9786
     m_GlyphIndex: 14
     m_Scale: 1
-    m_Name: 263a
-    m_HashCode: 1748406
+    m_Name: :doente
+    m_HashCode: -1764122421
   - m_ElementType: 2
     m_Unicode: 9785
     m_GlyphIndex: 15
     m_Scale: 1
-    m_Name: :C
-    m_HashCode: 1849
+    m_Name: :louco
+    m_HashCode: -2144796608
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 0
       m_Y: 384
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 1
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 128
       m_Y: 384
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 2
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 256
       m_Y: 384
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 3
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 384
       m_Y: 384
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 4
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 0
       m_Y: 256
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 5
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 128
       m_Y: 256
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 6
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 256
       m_Y: 256
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 7
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 384
       m_Y: 256
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 8
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 0
       m_Y: 128
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 9
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 128
       m_Y: 128
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 10
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 256
       m_Y: 128
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 11
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 384
       m_Y: 128
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 12
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 0
       m_Y: 0
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 13
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 128
       m_Y: 0
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 14
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 256
       m_Y: 0
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   - m_Index: 15
     m_Metrics:
       m_Width: 128
       m_Height: 128
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 115.6
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 384
       m_Y: 0
       m_Width: 128
       m_Height: 128
-    m_Scale: 1
+    m_Scale: 3
     m_AtlasIndex: 0
     sprite: {fileID: 0}
   spriteInfoList:
