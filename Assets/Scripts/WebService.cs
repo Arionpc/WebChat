@@ -172,13 +172,23 @@ public class WebService : MonoBehaviour
                                 GameObject chat = Instantiate(chatPrefab, chatTransform);
                                 string msg = ConvertMessage(itemList[i].InnerXml);
 
-                                msg = ReplaceTextWithEmoji(msg, ":BD");
-                                msg = ReplaceTextWithEmoji(msg, ":D");
-                                msg = ReplaceTextWithEmoji(msg, ":T-T");
-                                msg = ReplaceTextWithEmoji(msg, ":P");
-                                msg = ReplaceTextWithEmoji(msg, ":S2");
-                                msg = ReplaceTextWithEmoji(msg, ":;D");
-                                msg = ReplaceTextWithEmoji(msg, ":C");
+                                msg = ReplaceTextWithEmoji(msg, ":feliz");
+                                msg = ReplaceTextWithEmoji(msg, ":triste");
+                                msg = ReplaceTextWithEmoji(msg, ":nervoso");
+                                msg = ReplaceTextWithEmoji(msg, ":pensativo");
+                                msg = ReplaceTextWithEmoji(msg, ":bravo");
+                                msg = ReplaceTextWithEmoji(msg, ":8");
+                                msg = ReplaceTextWithEmoji(msg, ":fumando");
+                                msg = ReplaceTextWithEmoji(msg, ":surpresa");
+                                msg = ReplaceTextWithEmoji(msg, ":apaixonado");
+                                msg = ReplaceTextWithEmoji(msg, ":contente");
+                                msg = ReplaceTextWithEmoji(msg, ":ideia");
+                                msg = ReplaceTextWithEmoji(msg, ":chaplin");
+                                msg = ReplaceTextWithEmoji(msg, ":tirado");
+                                msg = ReplaceTextWithEmoji(msg, ":assobiar");
+                                msg = ReplaceTextWithEmoji(msg, ":doente");
+                                msg = ReplaceTextWithEmoji(msg, ":louco");
+
 
                                 chat.GetComponentInChildren<TextMeshProUGUI>().text = msg;
                                 if (msgAlert == "1")
