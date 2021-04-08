@@ -1,9 +1,18 @@
 Todos os Emojis tem como prefixo ':'
 
-:BD  	=Carinha de óculos
-:D   	=Carinha feliz
-:T-T 	=Carinha chorando de rir
-:P   	=Carinha mostrando a lingua
-:S2  	=Carinha apaixonada
-:;D  	=Carinha piscando e feliz
-:C  	=Carinha triste
+:feliz	= Carinha feliz
+:triste = Carinha triste
+:nervoso = Carinha nervosa
+:pensativo = Carinha pensativo
+:bravo = Carinha bravo
+:8 = Bola de bilhar 8
+:fumando = Carinha fumando
+:surpresa = Carinha surpresa
+:apaixonado = Carinha apaixonada
+:contente = Carinha contente
+:ideia = Carinha com lâmpada de ideia
+:chaplin = Carinha com feições de Charlie Chaplin
+:tirado = Carinha de óculos
+:assobiar = Carinha assobiando
+:doente = Carinha doente
+:louco = Carinha louco

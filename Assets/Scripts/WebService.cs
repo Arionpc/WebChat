@@ -33,6 +33,7 @@ public class WebService : MonoBehaviour
     List<int> currentMessages = new List<int>();
     List<string> current = new List<string>();
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) //Apertar Enter pra mandar msg
@@ -52,9 +53,15 @@ public class WebService : MonoBehaviour
     void OnDisable()
     {
         StopCoroutine(active);
-        chat.SetActive(false);
-        connection.SetActive(true);
-        rooms.HostOptions.SetActive(false);
+        if(chat != null)
+            chat.SetActive(false);
+
+
+        if(connection != null)
+            connection.SetActive(true);
+
+        if(rooms.HostOptions != null)
+            rooms.HostOptions.SetActive(false);
 
         for (int i = 0; i < chatTransform.childCount; i++)
         {

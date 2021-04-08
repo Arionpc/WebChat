@@ -48,6 +48,34 @@ public class ShowRooms : MonoBehaviour
     bool isCurrentHost = false;
 
     XmlNodeList itemList;
+    void OnDestroy()
+    {
+        if (service.enabled)
+        {
+            string url;
+            if (!isCurrentHost)
+            {
+                url = messageUri + "idUser=" + MyId + "&isAlert=1" + "&roomID=" + CurrentRoomID + "&message=" + "Um usuario se desconectou ao sair do estado de PLAY.";
+            }
+            else
+            {
+                url = messageUri + "idUser=-2" + "&isAlert=1" + "&roomID=" + CurrentRoomID + "&message=" + "Sistema: O host se desconectou. A sala está offline.";
+            }
+
+            WebRequest = UnityWebRequest.Get(url);
+
+            WebRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57");
+            WebRequest.SetRequestHeader("Cookie", cookieValue);
+            WebRequest.SendWebRequest();
+
+            Debug.LogWarning("Saindo da sala...");
+
+            WebRequest = UnityWebRequest.Get(exitRoomUri + "idRoom=" + CurrentRoomID + "&idUser=" + MyId);
+            WebRequest.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57");
+            WebRequest.SetRequestHeader("Cookie", cookieValue);
+            WebRequest.SendWebRequest();
+        }
+    }
 
     public void SearchRoom()
     {
