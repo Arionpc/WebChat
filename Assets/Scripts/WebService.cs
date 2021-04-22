@@ -21,6 +21,9 @@ public class WebService : MonoBehaviour
     [SerializeField] float updateSpeed = 1;
     [SerializeField] ScrollRect scroll;
 
+    [SerializeField] InputField inputFieldCookie;
+    [SerializeField] Button buttonCookie;
+
     UnityWebRequest webRequest;
     readonly string uri = "http://arioncerceau.epizy.com/SendMessage.php?";
     readonly string uriGetUsers = "http://arioncerceau.epizy.com/UsersInRoom.php?";
@@ -68,6 +71,11 @@ public class WebService : MonoBehaviour
             int id = i;
             Destroy(chatTransform.GetChild(id).gameObject);
         }
+    }
+
+    public void SetCookie()
+    {
+        cookieValue = inputFieldCookie.text;
     }
 
     public void SendMessage()
@@ -307,6 +315,11 @@ public class WebService : MonoBehaviour
     {
         inputField.text = "";
         Message = "";
+    }
+
+    public void VerifyIfCookieIsEmpty()
+    {
+        buttonCookie.interactable = inputFieldCookie.text != "";
     }
 
     public void VerifyIfMessageIsEmpty()

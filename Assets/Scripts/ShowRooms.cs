@@ -22,6 +22,7 @@ public class ShowRooms : MonoBehaviour
     [Header("Fields")]
     [SerializeField] InputField nameField;
     [SerializeField] InputField roomField;
+    [SerializeField] InputField inputFieldCookie;
     [Header("Buttons")]
     [SerializeField] Button createButton;
     [SerializeField] Button SearchButton;
@@ -75,6 +76,11 @@ public class ShowRooms : MonoBehaviour
             WebRequest.SetRequestHeader("Cookie", cookieValue);
             WebRequest.SendWebRequest();
         }
+    }
+
+    public void SetCookie()
+    {
+        cookieValue = inputFieldCookie.text;
     }
 
     public void SearchRoom()
