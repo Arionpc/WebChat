@@ -78,6 +78,10 @@ public class WebService : MonoBehaviour
         cookieValue = inputFieldCookie.text;
     }
 
+    public void Sair()
+    {
+        Application.Quit();
+    }
     public void SendMessage()
     {
         //Message
