@@ -23,12 +23,10 @@ public class WebService : MonoBehaviour
 
     [SerializeField] InputField inputFieldCookie;
     [SerializeField] Button buttonCookie;
-
-    UnityWebRequest webRequest;
+  
     readonly string uri = "http://arioncerceau.epizy.com/SendMessage.php?";
     readonly string uriGetUsers = "http://arioncerceau.epizy.com/UsersInRoom.php?";
 
-    public UnityWebRequest WebRequest { get => webRequest; private set => webRequest = value; }
     public string Message { get; set; }
 
     Coroutine active;
@@ -91,6 +89,7 @@ public class WebService : MonoBehaviour
     }
     IEnumerator SendRequest(string completeUrl)
     {
+        UnityWebRequest webRequest;
         button.interactable = false;
 
         webRequest = UnityWebRequest.Get(completeUrl);
@@ -137,6 +136,7 @@ public class WebService : MonoBehaviour
 
     IEnumerator GetRequest()
     {
+        UnityWebRequest webRequest;
         while (true)
         {
             yield return new WaitForSeconds(updateSpeed);
@@ -236,6 +236,7 @@ public class WebService : MonoBehaviour
 
     IEnumerator GetUsers()
     {
+        UnityWebRequest webRequest;
         yield return new WaitForSeconds(updateSpeed);
         webRequest = UnityWebRequest.Get(uriGetUsers + "roomID=" + rooms.CurrentRoomID);
 
